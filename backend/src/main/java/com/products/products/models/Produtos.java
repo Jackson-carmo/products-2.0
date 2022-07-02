@@ -1,16 +1,27 @@
 package com.products.products.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Produtos {
-	
-	private  Long id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Produtos implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nome;
 	private BigDecimal valor;
 	private String descricao;
 	private String imagem;
-	
+
 	private Categoria categoria;
 
 	public Produtos() {
@@ -92,7 +103,4 @@ public class Produtos {
 		return Objects.equals(id, other.id);
 	}
 
-	
-	
-	
 }
