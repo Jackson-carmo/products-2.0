@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class Categoria implements Serializable {
 	private String nome;
 	private String descricao;
 	
+	@OneToMany(mappedBy = "categoria")
 	private List<Produtos> produtos = new ArrayList<>();
 
 	public Categoria() {
