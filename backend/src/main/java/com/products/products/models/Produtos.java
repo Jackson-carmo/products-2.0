@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Produtos implements Serializable {
 
@@ -24,6 +26,7 @@ public class Produtos implements Serializable {
 	private String descricao;
 	private String imagem;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "categori_id")
 	private Categoria categoria;
